@@ -1,6 +1,6 @@
 {
   "name": "character",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Identify agents in the world, and track their memories",
   "main": "character.js",
   "dependencies": {
