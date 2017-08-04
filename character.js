@@ -5,7 +5,6 @@ module.exports = library.export(
   ["identifiable"],
   function(identifiable) {
     var names = {}
-    var avatars = {}
     var sightsByCharacterId = {}
 
     function character(id, name) {
@@ -16,7 +15,6 @@ module.exports = library.export(
         id = identifiable.assignId(names, name)
       }
       names[id] = name
-      avatars[id] = avatar
       return id
     }
 
@@ -33,8 +31,6 @@ module.exports = library.export(
       if (!sights) { return }
       return sights[key]      
     }
-
-    character.getPicture = identifiable.getFrom(avatars, "avatar")
 
     character.getName = identifiable.getFrom(names, "character name")
 
