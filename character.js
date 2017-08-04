@@ -12,7 +12,7 @@ module.exports = library.export(
         throw new Error("No name")
       }
       if (!id) {
-        id = identifiable.assignId(names, name)
+        id = identifiable.assignId(names)
       }
       names[id] = name
       return id
