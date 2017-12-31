@@ -1,13 +1,13 @@
 var library = require("module-library")(require)
 
 module.exports = library.export(
-  "character",
+  "creature",
   ["identifiable"],
   function(identifiable) {
     var names = {}
-    var sightsByCharacterId = {}
+    var sightsByCreatureId = {}
 
-    function character(id, name) {
+    function creature(id, name) {
       if (typeof name == "undefined") {
         throw new Error("No name")
       }
@@ -18,22 +18,22 @@ module.exports = library.export(
       return id
     }
 
-    character.see = function(id, key, value) {
-      var sights = sightsByCharacterId[id]
+    creature.see = function(id, key, value) {
+      var sights = sightsByCreatureId[id]
       if (!sights) {
-        sights = sightsByCharacterId[id] = {}
+        sights = sightsByCreatureId[id] = {}
       }
       sights[key] = value
     }
 
-    character.remember = function(id, key) {
-      var sights = sightsByCharacterId[id]
+    creature.remember = function(id, key) {
+      var sights = sightsByCreatureId[id]
       if (!sights) { return }
       return sights[key]      
     }
 
-    character.getName = identifiable.getFrom(names, "character name")
+    creature.getName = identifiable.getFrom(names, "creature name")
 
-    return character
+    return creature
   }
 )

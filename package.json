@@ -1,14 +1,14 @@
 {
-  "name": "character",
+  "name": "creature",
   "version": "0.3.0",
   "description": "Identify agents in the world, and track their memories",
-  "main": "character.js",
+  "main": "creature.js",
   "dependencies": {
     "module-library": "*",
     "identifiable": "*"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/erikpukinskis/character.git"
+    "url": "https://github.com/erikpukinskis/creature.git"
   }
 }
