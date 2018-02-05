@@ -32,3 +32,13 @@ doctors.playItBack()
 bird = creature.see("dr", "bird")
 // Now it returns "the bird has brown wings..."
 ```
+
+### Why
+
+It's just a key/value store. Granted. It does go two levels deep, so it forces you to namespace. That's so we always know which creature owns a key.
+
+We could namespace in a normal key-value store, but the point of creature is that every key belongs to _someone_.
+
+And because creature's API is all function calls, and is amenable to use for event-sourcing, that means we can shard the store up into multiple different realities, which makes it natural to only have a subset of the global store at any given time. It makes it easier to merge multiple stores too.
+
+Everything being namespaced to a single creature will tend to help with that too. Although sometimes different universes will have different opinions about what a given creature has seen, for the most part, it will tend to work out.
