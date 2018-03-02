@@ -8,7 +8,7 @@ creature.see("dr", "bird", "the bird has brown wings and a floofy head")
 creature("ted", "Tod Blosby")
 creature.see("ted", "bird", "get away from me bird")
 
-var bird = creature.see("dr", "bird")
+var bird = creature.remember("dr", "bird")
 // Returns "the bird has brown wings and a floofy head"
 ```
 
@@ -25,11 +25,11 @@ var doctors = aWildUniverseAppeared("memories of various doctors", {creature: "c
 doctors.do("creature", "dr", "Doctor Rabbit")
 doctors.do("creature.see", "dr", "bird", "the bird has brown wings and a floofy head")
 
-var bird = creature.see("dr", "bird")
+var bird = creature.remember("dr", "bird")
 // Wont return anything because creature.see hasn't been called yet
 
 doctors.playItBack()
-bird = creature.see("dr", "bird")
+bird = creature.remember("dr", "bird")
 // Now it returns "the bird has brown wings..."
 ```
 
