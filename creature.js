@@ -6,6 +6,7 @@ module.exports = library.export(
   function(identifiable) {
     var names = {}
     var sightsByCreatureId = {}
+    var said = []
 
     function creature(id, name) {
       if (typeof name == "undefined") {
@@ -24,6 +25,36 @@ module.exports = library.export(
         sights = sightsByCreatureId[id] = {}
       }
       sights[key] = value
+    }
+
+    creature.ensureOn = function(request, response, universe) {
+      var meId = request.cookies.meId
+     
+      if (!meId) {
+        meId = creature(null, "anonymous")
+        universe.do("creature", meId, "anonymous")
+        response.cookie(
+          "meId",
+          meId,{
+          maxAge: 10*years})
+      }
+
+      return meId
+    }
+
+    var minutes = 60
+    var hours = 60*minutes
+    var days = 24*hours
+    var years = 365*days
+    
+    creature.say = function(id, text) {
+      if (text) {
+        said.push(text)
+      }
+    }
+
+    creature.everythingSaid = function() {
+      return said
     }
 
     creature.remember = function(id, key) {
