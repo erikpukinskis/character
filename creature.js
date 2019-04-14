@@ -9,13 +9,12 @@ module.exports = library.export(
     var said = []
 
     function creature(id, name) {
-      if (typeof name == "undefined") {
-        throw new Error("No name")
+      if (typeof name != "undefined") {
+        names[id] = name
       }
       if (!id) {
         id = identifiable.assignId(names)
       }
-      names[id] = name
       return id
     }
 
